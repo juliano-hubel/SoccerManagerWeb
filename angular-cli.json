@@ -48,7 +48,7 @@
       "config": "./karma.conf.js"
     }
   },
-  "defaults": {
+  "defaults": {    
     "styleExt": "css",
     "prefixInterfaces": false,
     "inline": {

@@ -1,0 +1,39 @@
+<table class="table is-bordered is-narrow is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Ações</th>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <th>{{student.studentFirstName + ' ' + student.studentLastName}}</th>
+      <td>{{student.age}}</td>
+      <td>
+        <span class="icon has-text-info">
+          <a [routerLink]="['/aluno', student.id]">
+            <i title="visualizar" class="fas fa-info-circle"></i>
+          </a> 
+        </span>
+        <span class="icon has-text-warning">
+        <a [routerLink]="['/editar-aluno', student.id]" class="button is-outlined" >
+          <span class="icon">
+            <i title="editar" class="fas fa-edit"></i>
+          </span>
+        </a>    
+        </span>
+        <span class="icon has-text-danger">
+          <i title="excluir" class="fas fa-trash"></i>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

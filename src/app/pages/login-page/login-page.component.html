@@ -1,0 +1,50 @@
+<section class="hero is-success is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title merri">
+        Soccer Manager
+      </h1>
+      <div class="columns is-mobile">
+        <div class="column is-half is-offset-one-quarter">
+          <form [formGroup]="form">
+            <div class="field">
+              <div class="control" id="emailControl">
+                <input class="input" type="email" placeholder="Login" formControlName="email" (blur)="checkEmail()"
+                [ngClass]="{'is-danger' : (!form.controls.email.valid && !form.controls.email.pristine)}">                
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input class="input" type="password" placeholder="Senha" formControlName="password" 
+                [ngClass]="{'is-danger' : (!form.controls.password.valid && !form.controls.password.pristine)}">                
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button (click)="submit()" class="button is-success is-fullwidth is-inverted"
+                  [disabled]="!form.valid">Login</button>
+              </div>
+            </div>
+            <button (click)="openTermos()" class="button is-link is-fullwidth">termos de uso</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="modalTermos" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Termos de uso</p>
+      <button class="delete" (click)="closeTermos()" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      Termos de uso do site
+    </section>
+    <footer class="modal-card-foot">      
+      <button (click)="closeTermos()" class="button">Cancel</button>
+    </footer>
+  </div>
+</div>

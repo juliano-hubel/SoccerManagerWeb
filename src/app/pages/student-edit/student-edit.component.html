@@ -1,0 +1,129 @@
+<app-headbar></app-headbar>
+
+<section class="section">
+    <div class="container">
+      <h1 class="title">Editar Alunos</h1>
+      <h2 class="subtitle">
+      </h2>
+      <br>
+      <form [formGroup]="form">
+        <input type="hidden" formControlName="id">
+        <label class="label">Dados do aluno</label>
+        <div class="field is-grouped">                        
+            <div class="control is-expanded">
+                <input class="input" type="text" placeholder="Nome do aluno" formControlName="studentFirstName">
+            </div>
+            <div class="control is-expanded ">
+                <input class="input" type="text" placeholder="Sobrenome do aluno" formControlName="studentLastName">
+            </div>
+        </div>
+        <div class="field">
+            <p class="control is-expanded has-icons-left has-icons-right">
+              <input class="input is-success" type="email" placeholder="Email" formControlName="email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </p>
+          </div>
+        <div class="field">            
+            <div class="control">
+                <input class="input" type="text" placeholder="RG" formControlName="studentRG">
+            </div>            
+        </div>
+        <div class="field">
+            <div class="control">
+                    <input class="input" type="text" placeholder="CPF" formControlName="studentCPF">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                    <input class="input" type="date" placeholder="Data de Nascimento" formControlName="birthDate">
+            </div>
+        </div>   
+        
+        <div class="field">
+            <div class="control">
+                <label class="radio">
+                    <input type="radio" name="gender" value="1" formControlName="gender">
+                    Masculino
+                </label>
+                <label class="radio">
+                    <input type="radio" name="gender" value="2" formControlName="gender">
+                    Feminino
+                </label>
+            </div>
+        </div>                  
+        
+        <label class="label">Dados dos resposáveis</label>
+        <div class="field is-grouped">                        
+            <div class="control is-expanded">
+                <input class="input" type="text" placeholder="Nome do pai" formControlName="fatherFirstName">
+            </div>
+            <div class="control is-expanded ">
+                <input class="input" type="text" placeholder="Sobrenome do pai" formControlName="fatherLastName">
+            </div>
+        </div>
+        <div class="field">            
+            <div class="control">
+                <input class="input" type="text" placeholder="RG do pai" formControlName="fatherRG">
+            </div>            
+        </div>
+        <div class="field">
+            <div class="control">
+                    <input class="input" type="text" placeholder="CPF do pai" formControlName="fatherCPF">
+            </div>
+        </div>
+        <div class="field is-grouped">                        
+        <div class="control is-expanded">
+            <input class="input" type="text" placeholder="Nome da mãe" formControlName="motherFirstName">
+        </div>
+        <div class="control is-expanded ">
+            <input class="input" type="text" placeholder="Sobrenome da mãe" formControlName="motherLastName">
+        </div>
+        </div>
+        <div class="field">            
+            <div class="control">
+                <input class="input" type="text" placeholder="RG da mãe" formControlName="motherRG">
+            </div>            
+        </div>
+        <div class="field">
+            <div class="control">
+                    <input class="input" type="text" placeholder="CPF da mãe" formControlName="motherCPF">
+            </div>
+        </div>
+    
+        <label class="label">Dados de pagamento</label>
+        
+        <div class="field is-grouped">      
+            <div class="control is-expanded">
+                <input class="input" type="text" placeholder="Mensalidade" formControlName="paymentFee">
+            </div>
+            <div class="control is-expanded">
+                <input class="input" type="number" placeholder="Vencimento" formControlName="expirationFee" value="2">
+            </div>
+        </div>        
+        <div class="field">
+            <label class="label">Anotações</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="Anotações gerais sobre o aluno" formControlName="notes"></textarea>
+            </div>
+        </div>
+                              
+        <div class="field is-right">
+            <div class="control">
+                <button class="button is-link" (click)="submit()">Submit</button>
+            </div>            
+        </div>
+        
+        </form>
+        
+      
+    </div>
+  </section>
+
+
+
+<app-footer></app-footer>

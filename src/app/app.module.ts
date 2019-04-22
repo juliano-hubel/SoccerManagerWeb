@@ -25,8 +25,16 @@ import { StudentDetailsComponent } from './pages/student-details/student-details
 import { StudentEditComponent } from './pages/student-edit/student-edit.component';
 import { StudentCreateComponent } from './pages/student-create/student-create.component';
 
+
+import { AuthService } from './services/auth.service';
+//Directives
+import {NumberDirective} from './directives/number.directive';
+import {MaskDirective} from './directives/mask.directive';
+
 @NgModule({
   declarations: [
+    MaskDirective,
+    NumberDirective,
     AppComponent,
     HeadbarComponent,
     SubMenuComponent,
@@ -46,7 +54,7 @@ import { StudentCreateComponent } from './pages/student-create/student-create.co
     HttpModule, 
     Routing
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

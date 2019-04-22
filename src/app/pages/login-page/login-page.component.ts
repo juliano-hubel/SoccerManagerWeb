@@ -3,6 +3,7 @@ import{Validator, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import{CustomValidator} from '../../validators/custom.validator';
 import{ui} from '../../utils/ui';
 import {DataService} from '../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -11,8 +12,9 @@ import {DataService} from '../../services/data.service';
 })
 export class LoginPageComponent implements OnInit {
 public form: FormGroup;
+public errors:any[] = [];
 
-  constructor(private fb: FormBuilder , private ui :ui, private dataService : DataService) {
+  constructor(private fb: FormBuilder , private ui :ui, private dataService : DataService, private router:Router) {
       this.form = this.fb.group({
         email:['', Validators.compose([
           Validators.minLength(5),
@@ -26,6 +28,13 @@ public form: FormGroup;
           Validators.required
         ])]
       });
+            
+      var token = localStorage.getItem('soccermanager.token').toString();
+      if(token)
+      {
+        this.router.navigateByUrl('/home');
+      }
+
    }
 
   ngOnInit() {
@@ -51,8 +60,20 @@ public form: FormGroup;
   }
 
   submit()
-  {
-    this.dataService.createUser(this.form.value);
+  { 
+      this.dataService
+      .authenticate(this.form.value)
+      .subscribe(result=>{
+        localStorage.setItem('soccermanager.token', result.token);
+        localStorage.setItem('soccermamager.user', JSON.stringify(result.user));
+        this.router.navigateByUrl('/home');
+        console.log(result);
+
+      }, 
+      error=>{
+        this.errors = JSON.parse(error._body).errors;
+      })
+    
   }
 
 }

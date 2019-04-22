@@ -32,8 +32,7 @@ export class StudentEditComponent implements OnInit {
     });
 
     this.dataService.getStudent(this.studentId).subscribe(
-      result => { this.student = result 
-        console.log(this.student);
+      result => { this.student = result         
         this.FillForm(this.student);
       },
       error => { });      

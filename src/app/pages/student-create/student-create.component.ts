@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer } from '@angular/core';
 import { Validators, FormGroup, FormBuilder, Validator } from '@angular/forms';
 import {DataService} from '../../services/data.service';
 import{CustomValidator} from '../../validators/custom.validator';
 import { Router } from '@angular/router';
+import{ui} from '../../utils/ui';
+
+
+
 @Component({
   selector: 'app-student-create',
   templateUrl: './student-create.component.html'  ,
-  providers: [DataService]
+  providers: [DataService, ui]
 })
 export class StudentCreateComponent implements OnInit {
   public form:FormGroup;
   
 
-  constructor(public fb:FormBuilder, private dataService: DataService,private router:Router) { 
+  constructor(public fb:FormBuilder, private dataService: DataService,private router:Router, private ui:ui,
+    private renderer: Renderer) { 
     this.form = this.fb.group({
       studentFirstName:['', Validators.compose([
         Validators.minLength(5),
@@ -102,6 +107,42 @@ export class StudentCreateComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  checkEmail()
+  { 
+    var emailInput = document.getElementById('emailInput');
+    emailInput.classList.remove("is-danger")
+    emailInput.classList.remove("is-success");
+    this.ui.lock('emailControl');    
+    document.getElementById('emailCheck').style.display="none";      
+    document.getElementById('emailCheckFalse').style.display="none";      
+    
+
+
+    this.dataService.checkExistingEmail(this.form.controls['email'].value)
+    .subscribe(result =>{
+      this.ui.unlock('emailControl');
+      if(!result.exists)
+      {
+        document.getElementById('emailCheck').style.display="";              
+        emailInput.classList.add("is-success");
+      }
+      else  
+      {
+        document.getElementById('emailCheckFalse').style.display="";                  
+        emailInput.classList.add("is-danger");
+      }
+    }, error=>{
+        this.ui.unlock('emailControl');
+        document.getElementById('emailCheckFalse').style.display="";      
+        emailInput.classList.add("is-danger");
+    });    
+    
+    
+      
+    
+  }
+
 
   submit()
   {

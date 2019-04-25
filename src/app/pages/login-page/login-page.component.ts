@@ -29,11 +29,11 @@ public errors:any[] = [];
         ])]
       });
             
-      var token = localStorage.getItem('soccermanager.token').toString();
-      if(token)
-      {
-        this.router.navigateByUrl('/home');
-      }
+      // var token = localStorage.getItem('soccermanager.token').toString();
+      // if(token)
+      // {
+      //   this.router.navigateByUrl('/home');
+      // }
 
    }
 

@@ -6,13 +6,6 @@
       <th>Ações</th>
     </tr>
   </thead>
-  <tfoot>
-    <tr>
-      <th>Nome</th>
-      <th>Idade</th>
-      <th>Ações</th>
-    </tr>
-  </tfoot>
   <tbody>
     <tr *ngFor="let student of students">
       <th>{{student.studentFirstName + ' ' + student.studentLastName}}</th>
@@ -29,10 +22,12 @@
             <i title="editar" class="fas fa-edit"></i>
           </span>
         </a>    
-        </span>
+        </span>   
+        <button (click)="deleteStudent(student.id)">
         <span class="icon has-text-danger">
           <i title="excluir" class="fas fa-trash"></i>
         </span>
+      </button>     
       </td>
     </tr>
   </tbody>

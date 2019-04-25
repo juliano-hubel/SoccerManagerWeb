@@ -5,9 +5,10 @@ import { Observable } from 'rxjs/observable';
 
 @Injectable()
 export class DataService {
-    private serviceUrl : string = "http://localhost:4200/api/";
+
+    private serviceUrl: string = "http://localhost:4200/api/";
     //private serviceUrl : string = "https://localhost:44364/";    
-    public authenticateOptions : RequestOptions;
+    public authenticateOptions: RequestOptions;
 
     constructor(private http: Http) {
         this.LoadAuthenticate();
@@ -22,44 +23,49 @@ export class DataService {
     createUser(data: any) {
         console.log(data);
     }
-    
-    authenticate(data:any)
-    {
+
+    authenticate(data: any) {
         var dt = "grant_type=password&email=" + data.email + "&password=" + data.password;
-        let headers  = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded'});
+        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
         let options = new RequestOptions({ headers: headers });
         return this.http.post(this.serviceUrl + 'authenticate', dt, options)
-                .map((res:Response) => res.json());
+            .map((res: Response) => res.json());
 
     }
 
-    getStudents() {        
+    getStudents() {
         return this.http
-            .get(this.serviceUrl +  'students', this.authenticateOptions)
+            .get(this.serviceUrl + 'students', this.authenticateOptions)
             .map((res: Response) => res.json());
     }
 
-    getStudent(id : any)
-    {
+    getStudent(id: any) {
         return this.http
-        .get(this.serviceUrl  + 'students/' + id , this.authenticateOptions)
-        .map((res: Response) => res.json())
+            .get(this.serviceUrl + 'students/' + id, this.authenticateOptions)
+            .map((res: Response) => res.json())
     }
-    createStudent(data: any)
-    {
+    createStudent(data: any) {
         return this.http.post(this.serviceUrl + 'students', data, this.authenticateOptions)
-        .map((res: Response) => res.json());;
+            .map((res: Response) => res.json());;
     }
-    updateStudent(data: any)
-    {
+    updateStudent(data: any) {
         return this.http.put(this.serviceUrl + 'students/', data, this.authenticateOptions)
-                .map((res:Response) => res.json());
+            .map((res: Response) => res.json());
+    }
+    deleteStudent(id: any) {
+        return this.http.delete(this.serviceUrl + 'students/' + id, this.authenticateOptions)
+            .map((res: Response) => res.json());
     }
 
-    checkExistingEmail(email:string)
-    {        
+    checkExistingEmail(email: string) {
         return this.http.get(this.serviceUrl + 'checkExistingEmail/' + email)
-        .map((res : Response) => res.json());            
+            .map((res: Response) => res.json());
+    }
+
+    getTeachers() {
+        return this.http
+            .get(this.serviceUrl + "teachers", this.authenticateOptions)
+            .map((res: Response) => res.json());
     }
 
 

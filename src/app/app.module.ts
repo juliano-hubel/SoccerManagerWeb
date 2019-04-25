@@ -30,6 +30,10 @@ import { AuthService } from './services/auth.service';
 //Directives
 import {NumberDirective} from './directives/number.directive';
 import {MaskDirective} from './directives/mask.directive';
+import { TeachersPageComponent } from './pages/teachers-page/teachers-page.component';
+import { TeacherDetailsComponent } from './pages/teacher-details/teacher-details.component';
+import { TeacherEditComponent } from './pages/teacher-edit/teacher-edit.component';
+import { TeacherCreateComponent } from './pages/teacher-create/teacher-create.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import {MaskDirective} from './directives/mask.directive';
     StudentsPageComponent,
     StudentDetailsComponent,
     StudentEditComponent,
-    StudentCreateComponent  
+    StudentCreateComponent,
+    TeachersPageComponent,
+    TeacherDetailsComponent,
+    TeacherEditComponent,
+    TeacherCreateComponent  
   ],
   imports: [
     BrowserModule,

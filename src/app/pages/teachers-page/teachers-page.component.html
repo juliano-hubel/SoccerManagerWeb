@@ -1,0 +1,47 @@
+<app-headbar></app-headbar>
+
+
+<section class="section">
+  <div class="container">
+    <h1 class="title">Professores</h1>
+    <h2 class="subtitle">
+        <a [routerLink]="['/novo-professor']" class="button is-primary">Novo Professor</a>
+    </h2>
+    <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacher of teachers">
+          <th>{{teacher.firstName + ' ' + teacher.lastName}}</th>
+          <td>{{teacher.email}}</td>
+          <td>
+            <span class="icon has-text-info">
+              <a [routerLink]="['/professor', teacher.id]">
+                <i title="visualizar" class="fas fa-info-circle"></i>
+              </a> 
+            </span>
+            <span class="icon has-text-warning">
+            <a [routerLink]="['/editar-professor', teacher.id]" class="button is-outlined" >
+              <span class="icon">
+                <i title="editar" class="fas fa-edit"></i>
+              </span>
+            </a>    
+            </span>   
+            <button (click)="deleteTeacher(teacher.id)">
+            <span class="icon has-text-danger">
+              <i title="excluir" class="fas fa-trash"></i>
+            </span>
+          </button>     
+          </td>
+        </tr>
+      </tbody>
+    </table>    
+  </div>
+</section>
+
+<app-footer></app-footer>

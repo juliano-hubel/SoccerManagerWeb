@@ -24,16 +24,17 @@ import { StudentsPageComponent } from './pages/students-page/students-page.compo
 import { StudentDetailsComponent } from './pages/student-details/student-details.component';
 import { StudentEditComponent } from './pages/student-edit/student-edit.component';
 import { StudentCreateComponent } from './pages/student-create/student-create.component';
+import { TeachersPageComponent } from './pages/teachers-page/teachers-page.component';
+import { TeacherDetailsComponent } from './pages/teacher-details/teacher-details.component';
+import { TeacherEditComponent } from './pages/teacher-edit/teacher-edit.component';
+import { TeacherCreateComponent } from './pages/teacher-create/teacher-create.component';
 
 
 import { AuthService } from './services/auth.service';
 //Directives
 import {NumberDirective} from './directives/number.directive';
 import {MaskDirective} from './directives/mask.directive';
-import { TeachersPageComponent } from './pages/teachers-page/teachers-page.component';
-import { TeacherDetailsComponent } from './pages/teacher-details/teacher-details.component';
-import { TeacherEditComponent } from './pages/teacher-edit/teacher-edit.component';
-import { TeacherCreateComponent } from './pages/teacher-create/teacher-create.component';
+
 
 @NgModule({
   declarations: [

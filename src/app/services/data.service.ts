@@ -67,6 +67,11 @@ export class DataService {
             .get(this.serviceUrl + "teachers", this.authenticateOptions)
             .map((res: Response) => res.json());
     }
+    getTeacher(teacherId:any){
+        return this.http
+        .get(this.serviceUrl + "teachers/" +  teacherId, this.authenticateOptions)
+        .map((res: Reponse) => res.json());
+    }
 
 
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/observable';
+import { Teacher } from 'app/models/teacher.model';
 
 @Injectable()
 export class DataService {
@@ -63,11 +64,10 @@ export class DataService {
     }
 
     getTeachers() {
-        return this.http
-            .get(this.serviceUrl + "teachers", this.authenticateOptions)
-            .map((res: Response) => res.json());
+        return this.http.get(this.serviceUrl + "teachers", this.authenticateOptions)
+                 .map((res:Response) =>  res.json()) ;
     }
-    getTeacher(teacherId:any){
+    getTeacher(teacherId:any){  
         return this.http
         .get(this.serviceUrl + "teachers/" +  teacherId, this.authenticateOptions)
         .map((res: Response) => res.json());

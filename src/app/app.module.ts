@@ -62,7 +62,7 @@ import {MaskDirective} from './directives/mask.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpModule, 
-    Routing
+    Routing    
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

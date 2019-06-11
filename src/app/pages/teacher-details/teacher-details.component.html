@@ -3,13 +3,13 @@
   <div class="container">
     <h1 class="title">Dados Pessoais</h1>
     <h2 class="subtitle">      
-      <p><strong>Nome: </strong> {{teacher.firstName}} {{teacher.lastName}}</p>        
-      <p><strong>CPF: </strong> {{teacher.CPF}}</p>        
-      <p><strong>RG: </strong> {{teacher.RG}}</p>   
-      <p><strong>Email: </strong> {{teacher.email}}</p>        
-      <p><strong>Idade: </strong> {{teacher.age}}</p>        
-      <p><strong>Sexo: </strong> {{teacher.gender}}</p>        
-      <p><strong>Address: </strong> {{teacher.address}}</p>              
+      <p><strong>Nome: </strong> {{teacher?.firstName}} {{teacher?.lastName}}</p>        
+      <p><strong>CPF: </strong> {{teacher?.CPF}}</p>        
+      <p><strong>RG: </strong> {{teacher?.RG}}</p>   
+      <p><strong>Email: </strong> {{teacher?.email}}</p>        
+      <p><strong>Idade: </strong> {{teacher?.age}}</p>        
+      <p><strong>Sexo: </strong> {{teacher?.gender}}</p>        
+      <p><strong>Address: </strong> {{teacher?.address}}</p>              
     </h2>
   </div>
 </section>
@@ -17,10 +17,10 @@
   <div class="container">
     <h1 class="title">Dados Bacários</h1>
     <h2 class="subtitle" >      
-        <p><strong>Salário: </strong> {{teacher.Earnings }}</p> 
-        <p><strong>Banco: </strong> {{teacher.bankName }}</p> 
-        <p><strong>Agencia: </strong> {{teacher.bankAgency}}</p>                
-        <p><strong>Conta: </strong> {{teacher.bankAccount}}</p>                
+        <p><strong>Salário: </strong> {{teacher?.Earnings }}</p> 
+        <p><strong>Banco: </strong> {{teacher?.bankName }}</p> 
+        <p><strong>Agencia: </strong> {{teacher?.bankAgency}}</p>                
+        <p><strong>Conta: </strong> {{teacher?.bankAccount}}</p>                
     </h2>    
   </div>
 </section>
@@ -28,7 +28,7 @@
     <div class="container">
       <h1 class="title">Anotações</h1>
       <h2 class="subtitle" >      
-          <p>{{teacher.Notes}}</p>
+          <p>{{teacher?.Notes}}</p>
       </h2>    
     </div>
   </section>

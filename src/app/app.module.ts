@@ -31,6 +31,7 @@ import { TeacherCreateComponent } from './pages/teacher-create/teacher-create.co
 
 
 import { AuthService } from './services/auth.service';
+
 //Directives
 import {NumberDirective} from './directives/number.directive';
 import {MaskDirective} from './directives/mask.directive';

@@ -70,7 +70,7 @@ export class DataService {
     getTeacher(teacherId:any){
         return this.http
         .get(this.serviceUrl + "teachers/" +  teacherId, this.authenticateOptions)
-        .map((res: Reponse) => res.json());
+        .map((res: Response) => res.json());
     }
 
 

@@ -23,6 +23,11 @@ private teacherid: any;
     this.activatedRoute.params.subscribe(params => {
       this.teacherid =  params['id']; 
    });
+
+   
+
   }
+
+
 
 }
